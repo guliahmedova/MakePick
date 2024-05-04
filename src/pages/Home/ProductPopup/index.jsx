@@ -1,14 +1,14 @@
 import { close, shopping } from "@/shared/media/imgs";
 
-const ProductPopup = ({ title, discPrice, price, imgs, discount, desc, tags }) => {
-    
+const ProductPopup = ({ title, discPrice, price, imgs, discount, desc, tags, openModal, id, setOpenModal }) => {
+
     return (
-        <div className="fixed top-0 bottom-0 left-0 right-0 bg-black/10 z-50">
-            <button className="bg-white rounded-full w-10 h-10 flex flex-col justify-center items-center ml-auto mr-5 mt-5" type="button">
+        <div className={`fixed top-0 bottom-0 left-0 right-0 bg-black/50 z-50 w-full duration-500 ease-in-out h-screen overflow-hidden ${openModal === id ? 'block' : 'hidden'}`}>
+            <button className="bg-white rounded-full w-10 h-10 flex flex-col justify-center items-center ml-auto mr-5 mt-5" type="button" onClick={() => setOpenModal(null)}>
                 <img className="w-6" src={close} alt="" />
             </button>
-            <div className="flex flex-col items-center justify-center h-full w-full">
-                <div className="bg-white w-9/12 min-h-96 py-10 rounded-lg shadow-sm flex justify-between px-12">
+            <div className="flex flex-col items-center justify-center w-9/12 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                <div className="bg-white h-full w-full py-10 rounded-lg shadow-sm flex justify-between px-12">
                     <div className="w-6/12 mx-auto relative">
                         <span className={`bg-[#ffad5e] p-1 px-3 text-sm text-white font-medium text-center rounded-xl absolute right-14 ${discount ? "inline" : "hidden"}`}>
                             {discount}%
@@ -35,7 +35,7 @@ const ProductPopup = ({ title, discPrice, price, imgs, discount, desc, tags }) =
                                 <span className="text-[#ffad5e] text-sm italic line-through font-medium">${price}</span>
                             </div>
                             <button type="button" className="flex items-center hover:bg-[#009e7f] text-[#009e7f] hover:text-white duration-300 ease-in-out gap-3 border-2 shadow-sm rounded-3xl font-medium px-3 py-2 hover:fill-slate-50">
-                                <img src={shopping} alt="" className="w-5 h-5" />
+                                <img src={shopping} alt="" className="w-5 h-5 " />
                                 <span>Cart</span>
                             </button>
                         </div>

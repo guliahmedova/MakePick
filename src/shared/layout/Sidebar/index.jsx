@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 
 const Sidebar = ({ showSidebar, setShowSidebar }) => {
     return (
-        <div className={`bg-black/10 w-full h-screen fixed ease-in-out duration-300 ${showSidebar ? 'left-0' : 'left-[-100%]'} top-0 bottom-0`}>
+        <div className={`bg-black/50 z-50 w-full h-screen fixed ease-in-out duration-300 ${showSidebar ? 'left-0' : 'left-[-100%]'} top-0 bottom-0`}>
             <aside className="bg-white h-screen sm:w-96 shadow-lg overflow-y-scroll">
                 <button type="button" className="w-10 bg-transparent py-5 mx-10" onClick={() => setShowSidebar(false)}><img src={close} alt="" /></button>
                 <div className="bg-gray-100 flex items-center gap-5 px-10 py-10">

@@ -6,7 +6,7 @@
     width: 5px;
 }
 ::-webkit-scrollbar-track {
-    background: whitesmoke;
+    background: transparent;
 }
 ::-webkit-scrollbar-thumb {
     background: lightgray;

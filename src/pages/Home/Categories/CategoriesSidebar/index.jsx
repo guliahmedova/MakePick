@@ -6,7 +6,7 @@ const CategoriesSidebar = () => {
     const [categDropDown, setCategDropDown] = useState(null);
 
     return (
-        <div className="bg-white border shadow-sm sticky top-20 h-fit inline-block self-start w-80">
+        <div className="bg-white border shadow-sm sticky top-20 h-fit pb-10 lg:inline-block self-start w-80 hidden">
             <ul className="p-5 w-full">
                 {categories.map((item) => (
                     <li key={item.id} className="flex flex-col cursor-pointer mb-10" onClick={() => setCategDropDown(item.title)}>

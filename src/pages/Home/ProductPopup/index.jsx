@@ -1,10 +1,13 @@
-import { close, shopping } from "@/shared/media/imgs";
+import { close } from "@/shared/media/imgs";
 
-const ProductPopup = ({ title, discPrice, price, imgs, discount, desc, tags, openModal, id, setOpenModal }) => {
-
+const ProductPopup = ({ title, discPrice, price, imgs, discount, desc, tags, openModal, id, setOpenModal, setScroll }) => {
     return (
         <div className={`fixed top-0 bottom-0 left-0 right-0 bg-black/50 z-50 w-full duration-500 ease-in-out h-screen overflow-hidden ${openModal === id ? 'block' : 'hidden'}`}>
-            <button className="bg-white rounded-full w-10 h-10 flex flex-col justify-center items-center ml-auto mr-5 mt-5" type="button" onClick={() => setOpenModal(null)}>
+            <button className="bg-white rounded-full w-10 h-10 flex flex-col justify-center items-center ml-auto mr-5 mt-5" type="button"
+                onClick={() => {
+                    setOpenModal(null);
+                    setScroll(false);
+                }}>
                 <img className="w-6" src={close} alt="" />
             </button>
             <div className="flex flex-col items-center justify-center w-9/12 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
@@ -34,8 +37,8 @@ const ProductPopup = ({ title, discPrice, price, imgs, discount, desc, tags, ope
                                 <span className="text-[#009e7f] font-medium">${discPrice}</span>
                                 <span className="text-[#ffad5e] text-sm italic line-through font-medium">${price}</span>
                             </div>
-                            <button type="button" className="flex items-center hover:bg-[#009e7f] text-[#009e7f] hover:text-white duration-300 ease-in-out gap-3 border-2 shadow-sm rounded-3xl font-medium px-3 py-2 hover:fill-slate-50">
-                                <img src={shopping} alt="" className="w-5 h-5 " />
+                            <button type="button" className="flex group: items-center hover:bg-[#009e7f] text-[#009e7f] hover:text-white duration-300 ease-in-out gap-3 border-2 shadow-sm rounded-3xl font-medium px-3 py-2 hover:fill-slate-50">
+                                <svg width="19px" className="group-hover:fill-white fill-[#009e7f] duration-200" height="19px" viewBox="-0.5 0 13 13" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="Path_2" data-name="Path 2" d="M106.974,837h-12l2-11.031h1.989a1.98,1.98,0,0,1,3.96,0h2.051Zm-6-12.011c-1.042-.01-1.04.338-1.04.98h2.049C101.983,825.367,102.013,825,100.974,824.989ZM102.925,827v.994h-.943V827H99.933v.994h-.974V827H97.848l-1.75,9h9.719l-1.75-9ZM101,824c-.021,0-.041.005-.062.006s-.041-.006-.063-.006Z" transform="translate(-94.974 -824)"></path> </g></svg>
                                 <span>Cart</span>
                             </button>
                         </div>

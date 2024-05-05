@@ -1,14 +1,31 @@
 import langs from "@/shared/media/const/langs";
 import { avatar, questionMark, search } from "@/shared/media/imgs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = ({ setShowSidebar }) => {
     const [showDropdown, setShowDropDown] = useState(false);
     const [profileDropdown, setProfileDropdown] = useState(false);
+    const [scrollNavbar, setScrollNavbar] = useState(false);
+
+    const changeNavbarBgOnScroll = () => {
+        if (window.scrollY >= 100) {
+            setScrollNavbar(true);
+        } else {
+            setScrollNavbar(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', changeNavbarBgOnScroll)
+
+        return () => {
+            window.removeEventListener('scroll', changeNavbarBgOnScroll);
+        }
+    }, []);
 
     return (
-        <header className="h-16 bg-transparent fixed top-0 left-0 right-0 w-full z-40">
+        <header className={`h-16 ${scrollNavbar ? 'bg-white h-20 border shadow-sm' : 'bg-transparent'} duration-300 ease-in-out fixed top-0 left-0 right-0 w-full z-40`}>
             <nav className="p-4 flex justify-between items-center w-full mx-auto">
                 <div className="flex items-center gap-5">
                     <button type="button" className="flex flex-col gap-1 md:hidden" onClick={() => setShowSidebar(true)}>

@@ -1,4 +1,4 @@
-import { shoppingCart } from "@/shared/media/imgs"
+import { shoppingCart } from "@/shared/media/imgs";
 
 const CartPopupButton = () => {
   return (
@@ -13,4 +13,4 @@ const CartPopupButton = () => {
   )
 }
 
-export default CartPopupButton
+export default CartPopupButton;

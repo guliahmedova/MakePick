@@ -10,8 +10,8 @@ const ProductPopup = ({ title, discPrice, price, imgs, discount, desc, tags, ope
                 }}>
                 <img className="w-6" src={close} alt="" />
             </button>
-            <div className="flex flex-col items-center justify-center xl:w-9/12 w-full absolute xl:top-[50%] xl:left-[50%] bottom-0 xl:bottom-[-20%] xl:translate-x-[-50%] xl:translate-y-[-50%] h-96">
-                <div className="bg-white h-[38rem] xl:h-full w-full py-10 rounded-tl-3xl rounded-tr-3xl overflow-y-scroll xl:overflow-auto shadow-sm flex justify-between px-12 flex-col xl:flex-row xl:gap-0 gap-16 items-center xl:items-normal">
+            <div className="flex flex-col items-center justify-center xl:w-9/12 w-full absolute xl:top-[50%] xl:left-[50%] bottom-0 xl:bottom-[-20%] xl:translate-x-[-50%] xl:translate-y-[-50%] h-[28rem]">
+                <div className="bg-white h-[38rem] xl:h-full w-full py-10 rounded-tl-3xl rounded-tr-3xl xl:rounded-lg overflow-y-scroll xl:overflow-auto shadow-sm flex justify-between px-12 flex-col xl:flex-row xl:gap-0 gap-16 items-center xl:items-normal">
                     <div className="xl:w-6/12 mx-auto relative">
                         <span className={`~bg-[#ffad5e] p-1 px-3 text-sm text-white font-medium text-center rounded-xl absolute right-14 ${discount ? "inline" : "hidden"}`}>
                             {discount}%

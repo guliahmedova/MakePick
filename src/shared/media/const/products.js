@@ -19,7 +19,7 @@ export const products = [
         discPrice: 6.49,
         price: 8.99,
         imgs: [pr2, pr6, pr7, pr8],
-        discount: 28
+        discount: 0
     },
     {
         id: "3",
@@ -49,7 +49,7 @@ export const products = [
         discPrice: 6.99,
         price: 8.99,
         imgs: [pr5, pr18, pr19, pr20],
-        discount: 22
+        discount: 0
     },
     {
         id: "6",
@@ -69,7 +69,7 @@ export const products = [
         discPrice: 8.00,
         price: 10.00,
         imgs: [pr7, pr6, pr7, pr8],
-        discount: 20
+        discount: 0
     },
     {
         id: "8",
@@ -99,7 +99,7 @@ export const products = [
         discPrice: 5.00,
         price: 7.00,
         imgs: [pr10, pr18, pr19, pr20],
-        discount: 29
+        discount: 0
     },
     {
         id: "11",
@@ -119,7 +119,7 @@ export const products = [
         discPrice: 6.29,
         price: 7.99,
         imgs: [pr12, pr6, pr7, pr8],
-        discount: 21
+        discount: 0
     },
     {
         id: "13",
@@ -149,7 +149,7 @@ export const products = [
         discPrice: 22.99,
         price: 24.99,
         imgs: [pr15, pr18, pr19, pr20],
-        discount: 8
+        discount: 0
     },
     {
         id: "16",
@@ -169,7 +169,7 @@ export const products = [
         discPrice: 5.90,
         price: 6.70,
         imgs: [pr17, pr6, pr7, pr8],
-        discount: 12
+        discount: 0
     },
     {
         id: "18",
@@ -199,6 +199,6 @@ export const products = [
         discPrice: 5.90,
         price: 6.70,
         imgs: [pr6, pr6, pr7, pr8],
-        discount: 12
+        discount: 0
     },
 ]

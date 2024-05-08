@@ -38,6 +38,11 @@ const Navbar = ({ setShowSidebar }) => {
                     </Link>
                 </div>
 
+                <form action="#" className={`${scrollNavbar ? 'xl:flex hidden' : 'hidden'} duration-700 ease-in-out items-center gap-4 bg-gray-100 p-3 rounded-md border shadow-sm w-7/12`}>
+                    <button type="button"><img className="w-6" src={search} alt="" /></button>
+                    <input type="text" className="w-full bg-transparent outline-none" placeholder="Search your products from here" />
+                </form>
+
                 <ul className="flex items-center md:gap-5 gap-2">
                     <li className="font-medium md:block hidden">
                         <NavLink to="/offer" className={({ isActive }) => `flex items-center gap-1 ${isActive ? 'text-[#009e7f]' : ''}`}>

@@ -17,7 +17,7 @@ const ProductCard = ({ title, discPrice, price, imgs, discount, desc, tags, id }
 
     return (
         <>
-            <div className="bg-white rounded-lg shadow p-3 cursor-pointer xl:w-auto w-11/12 mx-auto xl:mx-0" onClick={(e) => {
+            <div className="bg-white rounded-lg shadow p-3 cursor-pointer" onClick={(e) => {
                 e.stopPropagation();
                 setOpenModal(id);
                 setScroll(true);
@@ -27,7 +27,7 @@ const ProductCard = ({ title, discPrice, price, imgs, discount, desc, tags, id }
                     <img src={imgs[0]} className="lg:w-52 mx-auto w-20" alt="" />
                 </div>
                 <div>
-                    <h3 className="font-medium overflow-hidden text-ellipsis whitespace-nowrap mb-2">{title}</h3>
+                    <h3 className="font-medium overflow-hidden text-ellipsis xl:whitespace-nowrap mb-2">{title}</h3>
                     <span className="text-sm text-slate-500">1 pc(s)</span>
                     <div className="flex items-center justify-between">
                         <div className="flex flex-col mt-5">

@@ -20,8 +20,8 @@ const Slider = () => {
 
             <div className="bg-white p-4 lg:hidden">
                 <div className="flex justify-between mb-8 items-center">
-                    <p className="w-full whitespace-nowrap overflow-hidden text-ellipsis text-xl font-medium text-slate-500">Branded & imported makeups</p>
-                    <button type="button" onClick={() => setOpenDemoPopup(true)} className="text-lg text-[#009e7f] font-medium flex items-center gap-2"><span className="w-1 h-1 block rounded-full bg-orange-500"></span>Makeup</button>
+                    <p className="w-full whitespace-nowrap overflow-hidden text-ellipsis xl:text-xl font-medium text-slate-500">Branded & imported makeups</p>
+                    <button type="button" onClick={() => setOpenDemoPopup(true)} className="xl:text-lg text-[#009e7f] font-medium flex items-center gap-2"><span className="w-1 h-1 block rounded-full bg-orange-500"></span>Makeup</button>
                 </div>
 
                 <form action="#" className="flex items-center gap-4 bg-gray-100 p-3 rounded-md border shadow-sm">

@@ -8,7 +8,7 @@ const Categories = () => {
             <CategoriesSidebar />
 
             <div className="py-5 h-auto min-h-screen w-full flex flex-col justify-center">
-                <div className="grid xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 gap-4 w-full lg:px-0 px-4">
+                <div className="grid xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 gap-4 w-full lg:px-0">
                     {products.map((product) => (
                         <ProductCard key={product.id}
                             id={product.id}

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const mobileDemoPopup = document.getElementById('mobileDemoPopup');
 
 const Slider = () => {
-    const [openDemoPopup, setOpenDemoPopup] = useState(true);
+    const [openDemoPopup, setOpenDemoPopup] = useState(false);
 
     useEffect(() => {
         if (openDemoPopup) {

@@ -11,7 +11,7 @@ const MobileDemoPopup = ({ setOpenDemoPopup, openDemoPopup }) => {
                 </button>
                 <div className='bg-white p-5 border shadow-lg h-[500px] overflow-scroll  rounded-tl-3xl rounded-tr-3xl grid grid-cols-2 gap-4'>
                     {demos.map((demo) => (
-                        <div className='bg-gray-50 rounded-md border shadow-sm flex flex-col items-center font-medium text-gray-600 text-lg gap-2 justify-center py-6' key={demo.id}>
+                        <div className='bg-gray-50 rounded-md border shadow-sm flex flex-col items-center font-medium text-gray-600 md:text-lg gap-2 justify-center py-6' key={demo.id}>
                             <img src={demo.img} alt="" className='w-6' />{demo.title}</div>
                     ))}
                 </div>

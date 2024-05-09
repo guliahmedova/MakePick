@@ -4,7 +4,7 @@ import CategoriesSidebar from "./CategoriesSidebar";
 
 const Categories = () => {
     return (
-        <div className="flex gap-10 bg-slate-50 items-center">
+        <div className="flex gap-10 bg-slate-50 items-center h-">
             <CategoriesSidebar />
 
             <div className="py-5 h-auto min-h-screen w-full flex flex-col justify-center">

@@ -51,7 +51,7 @@ const ShoppingCartSidebar = ({ openSidebar, setOpenSidebar }) => {
                             onClick={() => setOpenForm(true)}>Do you have a voucher?</span>
 
                         <form action="#"
-                            className={`border shadow-lg w-11/12 mx-auto mt-2 h-12 rounded-md flex items-center duration-300 ease-in-out ${openForm ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                            className={`border shadow-md w-11/12 mx-auto mt-2 h-12 rounded-md flex items-center duration-300 ease-in-out ${openForm ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                             <input type="text" placeholder="Enter voucher code here" className="w-full outline-none m-2" />
                             <button type="button" className="bg-[#009e7f] font-medium text-white rounded-lg m-1 px-5 py-1">Aplly</button>
                         </form>

@@ -1,0 +1,24 @@
+.cart_item {
+  display: none;
+}
+
+.send_to_cart.cart_item {
+  display: block;
+  animation: xAxis 1s forwards cubic-bezier(1, 0.44, 0.84, 0.165);
+}
+
+.send_to_cart.cart_item::before {
+  display: block;
+  animation: yAxis 1s alternate forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes xAxis {
+  100% {
+    transform: translateX(calc(100vw - 150px));
+  }
+}
+@keyframes yAxis {
+  100% {
+    transform: translateY(-384px);
+  }
+}

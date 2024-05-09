@@ -3,10 +3,17 @@ import { avatar, questionMark, search } from "@/shared/media/imgs";
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const Navbar = ({ setShowSidebar }) => {
-    const [showDropdown, setShowDropDown] = useState(false);
-    const [profileDropdown, setProfileDropdown] = useState(false);
+const Navbar = ({ setShowSidebar, setAuthModal }) => {
     const [scrollNavbar, setScrollNavbar] = useState(false);
+    const [selectedDropDown, setSelectedDropDown] = useState(null);
+
+    const toggleDropDowns = (key) => {
+        if (selectedDropDown == key) {
+            setSelectedDropDown(null);
+        } else {
+            setSelectedDropDown(key);
+        }
+    };
 
     const changeNavbarBgOnScroll = () => {
         if (window.scrollY >= 100) {
@@ -50,30 +57,39 @@ const Navbar = ({ setShowSidebar }) => {
                         </NavLink>
                     </li>
                     <li className="font-medium md:block hidden">
-                        <NavLink to="/offer" className={({ isActive }) => `flex items-center gap-1 ${isActive ? 'text-[#009e7f]' : ''}`}>
+                        <NavLink to="/help" className={({ isActive }) => `flex items-center gap-1 ${isActive ? 'text-[#009e7f]' : ''}`}>
                             <img src={questionMark} alt="" className="w-3" />Need Help
                         </NavLink>
                     </li>
                     <li className="cursor-pointer relative">
-                        <span onClick={() => setShowDropDown(!showDropdown)} className="flex items-center gap-2 sm:bg-white sm:rounded-md sm:shadow-sm py-2 px-3 font-medium sm:border">
+                        <span onClick={() => toggleDropDowns('langs')} className="flex items-center gap-2 sm:bg-white sm:rounded-md sm:shadow-sm py-2 px-3 font-medium sm:border-b">
                             <img src={langs[0].flag} className="w-5" alt="" /><span className="sm:block hidden">{langs[0].lang}</span>
                         </span>
-                        <ul className={`${showDropdown ? "flex" : "hidden"} flex-col items-center mt-4 absolute right-2 w-full`}>
+                        <ul className={`${selectedDropDown == 'langs' ? "flex" : "hidden"} flex-col items-center mt-4 absolute right-2 w-44`}>
                             {langs.map((item, index) => (
-                                <li className={`flex items-center gap-2 bg-white border px-10 py-6 font-medium ${index == 0 ? 'rounded-t' : index == langs.length - 1 ? "rounded-b" : ""}`} key={item.id}><img src={item.flag} alt="" className="w-5" />{item.lang}</li>
+                                <li
+                                    className={`flex items-center justify-center gap-2 bg-white border py-4 font-medium w-full 
+                                    ${index == 0 ? 'rounded-t' : index == langs.length - 1 ? "rounded-b" : ""}`}
+                                    key={item.id}>
+                                    <img src={item.flag} alt="" className="w-5" />{item.lang}
+                                </li>
                             ))}
                         </ul>
                     </li>
-                    <li className="font-medium hidden bg-[#009e7f] text-white py-2 px-3 rounded-md cursor-pointer">
+                    <li className="font-medium bg-[#009e7f] text-white py-2 px-3 rounded-md shadow-sm cursor-pointer" onClick={() => setAuthModal(true)}>
                         <button type="button">Join</button>
                     </li>
-                    <li className="relative md:block hidden">
-                        <img src={avatar} alt="" className="w-10 rounded-full cursor-pointer border" onClick={() => setProfileDropdown(!profileDropdown)} />
-                        <ul className={`absolute bg-white right-5 top-12 w-36 shadow-sm border rounded ${profileDropdown ? 'block' : 'hidden'}`}>
-                            <li className="font-medium text-lg text-left w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Profile</NavLink></li>
-                            <li className="font-medium text-lg text-left w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Profile</NavLink></li>
-                            <li className="font-medium text-lg text-left w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Profile</NavLink></li>
-                            <li className="font-medium text-lg text-left w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Profile</NavLink></li>
+                    <li className="relative md:hidden hidden z-[70]">
+                        <img src={avatar} alt="" className="w-10 rounded-full cursor-pointer border" onClick={() => toggleDropDowns('account')} />
+                        <ul className={`absolute bg-white right-5 top-14 w-auto shadow-md border rounded ${selectedDropDown == 'account' ? 'block' : 'hidden'}`}>
+                            <li className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Profile</NavLink></li>
+                            <li className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Checkout</NavLink></li>
+                            <li className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out text-ellipsis whitespace-nowrap"><NavLink to="/profile">Checkout Alternative</NavLink></li>
+                            <li className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Your Order</NavLink></li>
+                            <li className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Order Invoice</NavLink></li>
+                            <li className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Terms and Services</NavLink></li>
+                            <li className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Privacy Policy</NavLink></li>
+                            <li className="font-medium text-md text-left w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Logout</NavLink></li>
                         </ul>
                     </li>
                     <li className="md:hidden block"><img src={search} alt="" className="w-6" /></li>

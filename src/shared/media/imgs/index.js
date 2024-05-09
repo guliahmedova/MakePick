@@ -9,6 +9,8 @@ export { default as eyes } from "./eyes.svg";
 export { default as facialcare } from "./facialcare.svg";
 export { default as hero } from "./hero.png";
 export { default as lipstick } from "./lipstick.svg";
+export { default as of1 } from "./of1.png";
+export { default as of2 } from "./of2.png";
 export { default as oralcare } from "./oralcare.svg";
 export { default as pr1 } from "./pr1.jpg";
 export { default as pr10 } from "./pr10.jpg";

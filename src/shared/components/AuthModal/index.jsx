@@ -1,6 +1,5 @@
 import { close } from "@/shared/media/imgs";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const AuthModal = ({ openAuthModal, setAuthModal }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);

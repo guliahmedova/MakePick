@@ -22,7 +22,6 @@ const CartPopupButton = () => {
       window.removeEventListener("resize", updatePosition);
     };
   }, []);
-  
 
   return (
     <>

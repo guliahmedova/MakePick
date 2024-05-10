@@ -14,12 +14,12 @@
 
 @keyframes xAxis {
     100% {
-        transform: translateX(calc(100vw - 150px));
+        transform: translateX(calc(100vw - 100px));
     }
 }
 
 @keyframes yAxis {
     100% {
-        transform: translateY(-384px);
+        transform: translateY(384px);
     }
 }

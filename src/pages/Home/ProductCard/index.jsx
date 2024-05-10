@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 import style from './productCard.module.scss';
 const cardpopupEl = document.getElementById('cardpopup');
 
-const ProductCard = ({ title, discPrice, price, imgs, discount, desc, tags, id, cartButtonPosition }) => {
+const ProductCard = ({ title, discPrice, price, imgs, discount, desc, tags, id }) => {
     const [openModal, setOpenModal] = useState(null);
     const [scroll, setScroll] = useState(false);
     const ref = useRef();

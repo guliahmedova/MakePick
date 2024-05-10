@@ -79,17 +79,30 @@ const Navbar = ({ setShowSidebar, setAuthModal }) => {
                     <li className="font-medium bg-[#009e7f] text-white py-2 px-3 rounded-md shadow-sm cursor-pointer" onClick={() => setAuthModal(true)}>
                         <button type="button">Join</button>
                     </li>
-                    <li className="relative md:hidden hidden z-[70]">
+                    <li className="relative md:block hidden z-[70]">
                         <img src={avatar} alt="" className="w-10 rounded-full cursor-pointer border" onClick={() => toggleDropDowns('account')} />
                         <ul className={`absolute bg-white right-5 top-14 w-auto shadow-md border rounded ${selectedDropDown == 'account' ? 'block' : 'hidden'}`}>
-                            <li className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Profile</NavLink></li>
-                            <li className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Checkout</NavLink></li>
-                            <li className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out text-ellipsis whitespace-nowrap"><NavLink to="/profile">Checkout Alternative</NavLink></li>
-                            <li className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Your Order</NavLink></li>
-                            <li className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Order Invoice</NavLink></li>
-                            <li className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Terms and Services</NavLink></li>
-                            <li className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Privacy Policy</NavLink></li>
-                            <li className="font-medium text-md text-left w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200  ease-in-out"><NavLink to="/profile">Logout</NavLink></li>
+                            <li onClick={() => toggleDropDowns('account')} className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200 ease-in-out">
+                                <NavLink to="/profile" className='w-full block'>Profile</NavLink>
+                            </li>
+                            <li onClick={() => toggleDropDowns('account')} className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200 ease-in-out">
+                                <NavLink className='w-full block' to="/checkout">Checkout</NavLink>
+                            </li>
+                            <li onClick={() => toggleDropDowns('account')} className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200 ease-in-out text-ellipsis whitespace-nowrap">
+                                <NavLink className='w-full block' to="/checkout-alternative">Checkout Alternative</NavLink>
+                            </li>
+                            <li onClick={() => toggleDropDowns('account')} className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200 ease-in-out">
+                                <NavLink className='w-full block' to="/order">Your Order</NavLink>
+                            </li>
+                            <li onClick={() => toggleDropDowns('account')} className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200 ease-in-out">
+                                <NavLink className='w-full block' to="/order-received">Order Invoice</NavLink>
+                            </li>
+                            <li onClick={() => toggleDropDowns('account')} className="font-medium text-md text-left border-b w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200 ease-in-out">
+                                <NavLink className='w-full block' to="/privacy">Privacy Policy</NavLink>
+                            </li>
+                            <li onClick={() => toggleDropDowns('account')} className="font-medium cursor-pointer text-md text-left w-full px-4 py-4 hover:text-[#009e7f] transition-all duration-200 ease-in-out">
+                                Logout
+                            </li>
                         </ul>
                     </li>
                     <li className="md:hidden block"><img src={search} alt="" className="w-6" /></li>

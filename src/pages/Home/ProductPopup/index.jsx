@@ -1,6 +1,34 @@
 import { close } from "@/shared/media/imgs";
+import { useEffect, useRef, useState } from "react";
 
 const ProductPopup = ({ title, discPrice, price, imgs, discount, desc, tags, openModal, id, setOpenModal, setScroll }) => {
+    const ref = useRef();
+
+    const [isModalActive, setIsModalActive] = useState(false);
+
+    useEffect(() => {
+        let handler = (e) => {
+            if (!ref.current.contains(e.target)) {
+                setOpenModal(null);
+                setScroll(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handler);
+
+        return () => {
+            document.removeEventListener("mousedown", handler);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (openModal) {
+            setIsModalActive(true);
+        } else {
+            setIsModalActive(false);
+        }
+    }, [openModal]);
+
     return (
         <div className={`fixed top-0 bottom-0 left-0 right-0 bg-black/50 z-50 w-full duration-500 ease-in-out h-screen overflow-hidden ${openModal === id ? 'block' : 'hidden'}`}>
             <button className="bg-white rounded-full w-10 h-10 flex flex-col justify-center items-center ml-auto mr-5 mt-5" type="button"
@@ -10,7 +38,7 @@ const ProductPopup = ({ title, discPrice, price, imgs, discount, desc, tags, ope
                 }}>
                 <img className="w-6" src={close} alt="" />
             </button>
-            <div className="flex flex-col items-center justify-center xl:w-9/12 w-full absolute xl:top-[50%] xl:left-[50%] bottom-0 xl:bottom-[-20%] xl:translate-x-[-50%] xl:translate-y-[-50%] h-[28rem]">
+            <div ref={ref} className={`flex flex-col items-center justify-center xl:w-9/12 w-full absolute xl:top-[50%] xl:left-[50%] bottom-0 xl:bottom-[-20%] xl:translate-x-[-50%] xl:translate-y-[-50%] h-fit duration-500 ease-in-out ${isModalActive ? 'scale-100' : 'scale-0'}`}>
                 <div className="bg-white h-[38rem] xl:h-full w-full py-10 rounded-tl-3xl rounded-tr-3xl xl:rounded-lg overflow-y-scroll xl:overflow-auto shadow-sm flex justify-between px-12 flex-col xl:flex-row xl:gap-0 gap-16 items-center xl:items-normal">
                     <div className="xl:w-6/12 mx-auto relative">
                         <span className={`~bg-[#ffad5e] p-1 px-3 text-sm text-white font-medium text-center rounded-xl absolute right-14 ${discount ? "inline" : "hidden"}`}>

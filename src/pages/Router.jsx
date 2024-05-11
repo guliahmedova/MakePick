@@ -1,4 +1,4 @@
-import { Help, Home, Offer, Profile, Checkout } from "@/pages";
+import { Checkout, Help, Home, Offer, OrderReceived, Profile } from "@/pages";
 import { AuthModal, CartPopupButton } from "@/shared/components";
 import Navbar from "@/shared/layout/Navbar";
 import Sidebar from "@/shared/layout/Sidebar";
@@ -24,6 +24,7 @@ const Router = () => {
                 <Route path="/help" index element={<Help />} />
                 <Route path="/profile" index element={<Profile />} />
                 <Route path="/checkout" index element={<Checkout />} />
+                <Route path="/order-received" index element={<OrderReceived />} />
             </Routes>
         </>
     )

@@ -1,11 +1,12 @@
 import langs from "@/shared/media/const/langs";
 import { avatar, questionMark, search } from "@/shared/media/imgs";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = ({ setShowSidebar, setAuthModal }) => {
     const [scrollNavbar, setScrollNavbar] = useState(false);
     const [selectedDropDown, setSelectedDropDown] = useState(null);
+    const ref = useRef();
 
     const toggleDropDowns = (key) => {
         if (selectedDropDown == key) {
@@ -31,8 +32,22 @@ const Navbar = ({ setShowSidebar, setAuthModal }) => {
         }
     }, []);
 
+    useEffect(() => {
+        let handler = (e) => {
+            if (!ref.current.contains(e.target)) {
+                setSelectedDropDown(null);
+            }
+        };
+
+        document.addEventListener("mousedown", handler);
+
+        return () => {
+            document.removeEventListener("mousedown", handler);
+        }
+    }, []);
+
     return (
-        <header className={`h-16 ${scrollNavbar ? 'bg-white h-20 border shadow-sm' : 'bg-transparent'} duration-300 ease-in-out fixed top-0 left-0 right-0 w-full z-40`}>
+        <header ref={ref} className={`h-16 ${scrollNavbar ? 'bg-white h-20 border shadow-sm' : 'bg-transparent'} duration-300 ease-in-out fixed top-0 left-0 right-0 w-full z-40`}>
             <nav className="p-4 flex justify-between items-center w-full mx-auto">
                 <div className="flex items-center gap-5">
                     <button type="button" className="flex flex-col gap-1 md:hidden" onClick={() => setShowSidebar(true)}>
